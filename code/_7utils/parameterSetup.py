@@ -248,6 +248,8 @@ class ParameterSetup(object):
         # label correction (dictionary)
         # self.classLabels = ['S', 'W', 'R']
         self.labelCorrectionDict = {'S' : 'n', 'W' : 'w', 'R' : 'r', 'H' :'h', 'RW' : 'w', 'M' : 'm', 'P' : 'P', 'F2' : 'F2', '?' : '?', '-' : '-'}
+        # self.labelCorrectionDict = {'S' : 'n', 'W' : 'w', 'R' : 'r', 'H' :'h', 'RW' : 'w', 'M' : 'm', 'P' : 'P', 'F2' : 'F2', '?' : '?', '-' : '-'}
+
         ### self.stageLabel2stageID = {'W': 0, 'S': 1, 'R': 2, 'M': 3, 'P': 4, 'RW': 5, 'F2' : 6}
         # self.stageLabels = ['W', 'S', 'R', 'M']
         # self.stageLabels4evaluation = ['W', 'S', 'R', 'M']
@@ -258,11 +260,14 @@ class ParameterSetup(object):
         # for reading data files
         self.metaDataLineNumUpperBound4eeg = 100
         self.metaDataLineNumUpperBound4stage = 100
-        # self.cueWhereEEGDataStarts = 'Time'
-        self.cueWhereEEGDataStarts = ',,,,'
+        self.cueWhereEEGDataStarts = 'Time'
+        # self.cueWhereEEGDataStarts = ',,,,'
 
         # self.cueWhereStageDataStarts = 'No.,Epoch'
-        self.cueWhereStageDataStarts = ',,,%,%,uV^2,,uV^2'
+        # self.cueWhereStageDataStarts = ',,,%,%,uV^2,,uV^2'
+        self.cueWhereStageDataStarts = ',,,,'
+
+        
 
         # ID for the classifierp
         # self.classifierID = ''.join(random.choice(string.ascii_uppercase + string.digits) for _ in range(6))

@@ -1,7 +1,7 @@
 import numpy as np
 import sys
 # import sys
-# sys.path.insert(1,'..')
+sys.path.insert(1,'..')
 from _7utils.parameterSetup import ParameterSetup
 from _6test.evaluationCriteria import y2sensitivity, y2confusionMat, printConfusionMat
 
@@ -38,8 +38,8 @@ with open(testFilePath) as testFile:
 y_pred = np.array(y_pred[11:])
 y_test = np.array(y_test[11:])
 
-# print('y_pred =', y_pred)
-# print('y_test =', y_test)
+print('y_pred =', y_pred)
+print('y_test =', y_test)
 
 (stageLabels, sensitivity, specificity, accuracy, precision, f1score) = y2sensitivity(y_test, y_pred)
 (stageLabels4confusionMat, confusionMat) = y2confusionMat(y_test, y_pred, params.stageLabels4evaluation)
