@@ -276,6 +276,7 @@ class ParameterSetup(object):
         orig_stageLabels = ['S', 'W', 'R', 'H', 'RW', 'M', 'P', 'F2', '?', '-']
         self.stagesByDepth = ['r', 'n', 'w', 'h', '?']
         self.stageLabel2stageID = {stage : stageID for stage, stageID in zip(orig_stageLabels[:self.maximumStageNum], range(self.maximumStageNum))}
+        
         self.correctedLabel2depthID = {stage : stageID for stage, stageID in zip(self.stagesByDepth, range(len(self.stagesByDepth)))}
         ### self.stageLabels4evaluation = [key for key in self.stageLabel2stageID.keys()]
         self.stageLabels4evaluation = orig_stageLabels[:self.maximumStageNum]

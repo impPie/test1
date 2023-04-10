@@ -32,7 +32,8 @@ with open(testFilePath) as testFile:
         if len(elems) > 2:
             t = elems[2]
             # print('test:', t)
-            t = 'W' if t == 'RW' else t
+            t = 'W' if (t == 'RW' or t == 'l') else t
+            t = 'H' if t =='h' else t
             y_test.append(t)
 
 y_pred = np.array(y_pred[11:])
