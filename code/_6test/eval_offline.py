@@ -1,5 +1,5 @@
 import numpy as np
-import sys
+import sys,os
 # import sys
 sys.path.insert(1,'..')
 from _7utils.parameterSetup import ParameterSetup
@@ -19,22 +19,24 @@ with open(params.predDir + '/' + predFileName, 'r') as predFile:
         y_pred.append(p)
 
 y_test = []
-with open(testFilePath) as testFile:
-    for i in range(params.metaDataLineNumUpperBound4stage):    # skip lines that describes metadata
-        line = testFile.readline()
-        if line.startswith(params.cueWhereStageDataStarts):
-            break
-        if i == params.metaDataLineNumUpperBound4stage - 1:
-            print('metadata header for stage file was not correct.')
-            quit()
-    for line in testFile:
-        elems = line.split(',')
-        if len(elems) > 2:
-            t = elems[2]
-            # print('test:', t)
-            t = 'W' if (t == 'RW' or t == 'l') else t
-            t = 'H' if t =='h' else t
-            y_test.append(t)
+Files = os.listdir(testFilePath)
+for f in Files:
+    with open(testFilePath+'/'+f) as testFile:
+        for i in range(params.metaDataLineNumUpperBound4stage):    # skip lines that describes metadata
+            line = testFile.readline()
+            if line.startswith(params.cueWhereStageDataStarts):
+                break
+            if i == params.metaDataLineNumUpperBound4stage - 1:
+                print('metadata header for stage file was not correct.')
+                quit()
+        for line in testFile:
+            elems = line.split(',')
+            if len(elems) > 2:
+                t = elems[2]
+                # print('test:', t)
+                t = 'W' if (t == 'RW' or t == 'l') else t
+                t = 'H' if t =='h' else t
+                y_test.append(t)
 
 y_pred = np.array(y_pred[11:])
 y_test = np.array(y_test[11:])
